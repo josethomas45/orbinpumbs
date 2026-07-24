@@ -44,7 +44,7 @@ export default function HeroSection({ slides }: HeroSectionProps) {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
+
           {/* Left: Premium Typography (7 columns) */}
           <div className="lg:col-span-7">
             <AnimatePresence mode="wait">
@@ -133,52 +133,55 @@ export default function HeroSection({ slides }: HeroSectionProps) {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] aspect-square bg-gradient-to-b from-white/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
                 <Image
-                  src="/images/home/orbin_hero_pump_1781466725181.png"
-                  alt="ORBIN Premium Pump"
+                  src={`/images/home/slide-${current + 1}.png`}
+                  alt={slide.title || "ORBIN Premium Pump"}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-contain object-center drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
                   priority
+                  onError={(e) => {
+                    e.currentTarget.src = "/images/home/hero-image.png";
+                  }}
                 />
               </motion.div>
             </AnimatePresence>
+
+            {/* Elegant Slide Controls (Centered under image) */}
+            {slides && slides.length > 1 && (
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center gap-5 w-full">
+                <button
+                  onClick={prev}
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-white/10 text-white/50 hover:text-white hover:border-white/30 transition-colors bg-[#050B14]/50 backdrop-blur-sm"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                <div className="flex gap-3">
+                  {slides.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setCurrent(i)}
+                      className="group relative py-4 flex items-center justify-center"
+                    >
+                      <span className={`block h-1 transition-all duration-500 rounded-full ${i === current ? "w-10 bg-orbin-gold" : "w-5 bg-white/20 group-hover:bg-white/40"
+                        }`} />
+                    </button>
+                  ))}
+                </div>
+
+                <button
+                  onClick={next}
+                  className="w-10 h-10 flex items-center justify-center rounded-full border border-white/10 text-white/50 hover:text-white hover:border-white/30 transition-colors bg-[#050B14]/50 backdrop-blur-sm"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            )}
           </div>
 
         </div>
       </div>
 
-      {/* Elegant Slide Controls */}
-      {slides && slides.length > 1 && (
-        <div className="absolute bottom-12 right-12 z-20 flex items-center gap-6">
-          <button
-            onClick={prev}
-            className="w-12 h-12 flex items-center justify-center rounded-full border border-white/10 text-white/50 hover:text-white hover:border-white/30 transition-colors"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          
-          <div className="flex gap-4">
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className="group relative py-4 flex items-center justify-center"
-              >
-                <span className={`block h-1 transition-all duration-500 rounded-full ${
-                  i === current ? "w-12 bg-orbin-gold" : "w-6 bg-white/20 group-hover:bg-white/40"
-                }`} />
-              </button>
-            ))}
-          </div>
-
-          <button
-            onClick={next}
-            className="w-12 h-12 flex items-center justify-center rounded-full border border-white/10 text-white/50 hover:text-white hover:border-white/30 transition-colors"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-      )}
     </section>
   );
 }

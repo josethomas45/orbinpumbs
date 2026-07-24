@@ -32,11 +32,11 @@ export default function FeaturedProductsList({ products }: FeaturedProductsListP
 
   // Split products into two rows for the double marquee effect
   // If there's only 1 product, duplicate it to both rows to prevent empty space
-  const row1Products = filteredProducts.length > 1 
-    ? filteredProducts.slice(0, Math.ceil(filteredProducts.length / 2)) 
+  const row1Products = filteredProducts.length > 1
+    ? filteredProducts.slice(0, Math.ceil(filteredProducts.length / 2))
     : filteredProducts;
-  const row2Products = filteredProducts.length > 1 
-    ? filteredProducts.slice(Math.ceil(filteredProducts.length / 2)) 
+  const row2Products = filteredProducts.length > 1
+    ? filteredProducts.slice(Math.ceil(filteredProducts.length / 2))
     : filteredProducts;
 
   // Fallback to duplicate products if there are too few to look good in a continuous row
@@ -70,11 +70,14 @@ export default function FeaturedProductsList({ products }: FeaturedProductsListP
       {/* Product Image */}
       <div className="relative z-10 w-full h-48 flex items-center justify-center mt-auto mb-4">
         <Image
-          src={product.images?.[0]?.asset?._ref || "/images/home/orbin_hero_pump_1781466725181.png"}
+          src={product.images?.[0]?.asset?._ref || `/images/products/${product.slug.current}.png`}
           alt={product.title}
           fill
           sizes="(max-width: 768px) 100vw, 380px"
           className="object-contain p-4 group-hover:scale-110 group-hover:-rotate-2 transition-transform duration-700 ease-out drop-shadow-[0_20px_30px_rgba(0,0,0,0.5)]"
+          onError={(e) => {
+            e.currentTarget.src = "/images/home/orbin_hero_pump_1781466725181.png";
+          }}
         />
       </div>
 
@@ -132,7 +135,7 @@ export default function FeaturedProductsList({ products }: FeaturedProductsListP
         </div>
 
         {/* Filter Tabs */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -144,19 +147,18 @@ export default function FeaturedProductsList({ products }: FeaturedProductsListP
             <span className="text-sm font-medium uppercase tracking-wider">Filter:</span>
           </div>
           {categories.map((cat) => {
-            const label = cat === "all" 
-              ? "All Products" 
+            const label = cat === "all"
+              ? "All Products"
               : cat.split("-").map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ").replace(" Pumps", "");
-            
+
             return (
               <button
                 key={cat}
                 onClick={() => setActiveTab(cat)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 border ${
-                  activeTab === cat 
-                    ? "bg-orbin-teal text-white shadow-[0_0_20px_rgba(30,158,142,0.3)] border-transparent"
-                    : "bg-transparent border-white/10 text-white/60 hover:bg-white/5 hover:text-white hover:border-white/20"
-                }`}
+                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 border ${activeTab === cat
+                  ? "bg-orbin-teal text-white shadow-[0_0_20px_rgba(30,158,142,0.3)] border-transparent"
+                  : "bg-transparent border-white/10 text-white/60 hover:bg-white/5 hover:text-white hover:border-white/20"
+                  }`}
               >
                 {label}
               </button>
@@ -167,7 +169,7 @@ export default function FeaturedProductsList({ products }: FeaturedProductsListP
 
       {/* Marquee Container with key to force re-animation on tab change */}
       <AnimatePresence mode="wait">
-        <motion.div 
+        <motion.div
           key={activeTab}
           initial={{ opacity: 0, filter: "blur(10px)" }}
           animate={{ opacity: 1, filter: "blur(0px)" }}

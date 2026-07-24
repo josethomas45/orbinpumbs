@@ -3,17 +3,17 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { 
-  ArrowRight, 
-  Droplets, 
-  Sun, 
-  Waves, 
-  Zap, 
-  Home, 
-  Recycle, 
-  Cable, 
-  Cpu, 
-  Flame, 
+import {
+  ArrowRight,
+  Droplets,
+  Sun,
+  Waves,
+  Zap,
+  Home,
+  Recycle,
+  Cable,
+  Cpu,
+  Flame,
   Wrench,
   Package
 } from "lucide-react";
@@ -45,7 +45,7 @@ export default function FeaturedCategories({ categories }: FeaturedCategoriesPro
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-orbin-gold/[0.03] rounded-full blur-[80px] translate-y-1/3 -translate-x-1/3 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.div
@@ -81,7 +81,7 @@ export default function FeaturedCategories({ categories }: FeaturedCategoriesPro
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {categories.map((cat, i) => {
             const Icon = categoryIcons[cat.slug.current] || Package;
-            
+
             return (
               <motion.div
                 key={cat._id}
@@ -97,17 +97,20 @@ export default function FeaturedCategories({ categories }: FeaturedCategoriesPro
                 >
                   {/* Premium Image Header */}
                   <div className="relative h-56 w-full bg-gray-100 overflow-hidden flex-shrink-0">
-                    <Image 
-                      src="/images/home/category-placeholder.png" 
-                      alt={cat.title} 
-                      fill 
+                    <Image
+                      src={`/images/categories/${i + 1}.png`}
+                      alt={cat.title}
+                      fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      onError={(e) => {
+                        e.currentTarget.src = "/images/home/category-placeholder.png";
+                      }}
                     />
-                    
+
                     {/* Inner Shadow / Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
-                    
+
                     {/* Overlay Icon Container (Glassmorphism) */}
                     <div className="absolute bottom-5 left-6 w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg group-hover:bg-orbin-teal group-hover:border-orbin-teal transition-colors duration-500">
                       <Icon className="w-7 h-7 text-white" strokeWidth={1.5} />
