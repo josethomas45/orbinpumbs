@@ -11,7 +11,7 @@ export default function BrandStory() {
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-orbin-teal/5 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-orbin-gold/5 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3" />
-      
+
       {/* Grid Pattern */}
       <div className="absolute inset-0 pattern-grid opacity-[0.03] pointer-events-none" />
 
@@ -73,7 +73,7 @@ export default function BrandStory() {
               className="relative rounded-[2.5rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] aspect-[4/5] sm:aspect-square lg:aspect-[4/5]"
             >
               <Image
-                src="/images/home/orbin_manufacturing_1781466744233.png"
+                src="/images/home/about-banner.png"
                 alt="ORBIN State-of-the-art Manufacturing Facility"
                 fill
                 className="object-cover object-center hover:scale-105 transition-transform duration-1000 ease-out"
