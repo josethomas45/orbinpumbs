@@ -73,7 +73,7 @@ export default function BrandStory() {
               className="relative rounded-[2.5rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.15)] aspect-[4/5] sm:aspect-square lg:aspect-[4/5]"
             >
               <Image
-                src="/images/home/about-banner.png"
+                src="/images/home/about-banner.jpeg"
                 alt="ORBIN State-of-the-art Manufacturing Facility"
                 fill
                 className="object-cover object-center hover:scale-105 transition-transform duration-1000 ease-out"
