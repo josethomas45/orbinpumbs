@@ -133,7 +133,7 @@ export default function HeroSection({ slides }: HeroSectionProps) {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] aspect-square bg-gradient-to-b from-white/5 to-transparent rounded-full blur-3xl pointer-events-none" />
 
                 <Image
-                  src={`/images/home/slide-${current + 1}.png`}
+                  src={`/images/home/slide-${current + 1}.jpeg`}
                   alt={slide.title || "ORBIN Premium Pump"}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"

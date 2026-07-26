@@ -24,6 +24,15 @@ export const fallbackHeroSlides: HeroSlide[] = [
     ctaText: "Learn More",
     ctaLink: "/solar",
   },
+  {
+    _id: "hero-3",
+    title: "Advanced Pumping Technology",
+    subtitle:
+      "Engineered for performance and reliability. Discover our range of innovative water management solutions.",
+    image: {} as HeroSlide["image"],
+    ctaText: "View Catalog",
+    ctaLink: "/products",
+  },
 ];
 
 export const fallbackCategories: Category[] = [

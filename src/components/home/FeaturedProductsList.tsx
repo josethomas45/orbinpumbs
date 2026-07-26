@@ -70,7 +70,7 @@ export default function FeaturedProductsList({ products }: FeaturedProductsListP
       {/* Product Image */}
       <div className="relative z-10 w-full h-48 flex items-center justify-center mt-auto mb-4">
         <Image
-          src={product.images?.[0]?.asset?._ref || `/images/products/${product.slug.current}.png`}
+          src={product.images?.[0]?.asset?._ref || `/images/products/${product.slug.current}.jpeg`}
           alt={product.title}
           fill
           sizes="(max-width: 768px) 100vw, 380px"

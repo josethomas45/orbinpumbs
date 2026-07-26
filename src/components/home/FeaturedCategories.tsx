@@ -98,7 +98,7 @@ export default function FeaturedCategories({ categories }: FeaturedCategoriesPro
                   {/* Premium Image Header */}
                   <div className="relative h-56 w-full bg-gray-100 overflow-hidden flex-shrink-0">
                     <Image
-                      src={`/images/categories/${i + 1}.png`}
+                      src={cat.image?.asset?._ref || `/images/categories/${cat.slug.current}.jpeg`}
                       alt={cat.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
