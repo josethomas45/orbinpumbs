@@ -141,9 +141,8 @@ export default function ProductDetail({
                     {product.specifications.map((spec, i) => (
                       <tr
                         key={i}
-                        className={`border-t border-orbin-gray-100 ${
-                          i % 2 === 0 ? "bg-white" : "bg-orbin-gray-50/50"
-                        } hover:bg-orbin-teal-50/30 transition-colors`}
+                        className={`border-t border-orbin-gray-100 ${i % 2 === 0 ? "bg-white" : "bg-orbin-gray-50/50"
+                          } hover:bg-orbin-teal-50/30 transition-colors`}
                       >
                         <td className="px-4 py-3 font-medium text-orbin-gray-900">
                           {spec.model}

@@ -67,16 +67,6 @@ export const fallbackCategories: Category[] = [
     productCount: 2,
   },
   {
-    _id: "cat-4",
-    title: "SS Investment Casting Pumps",
-    slug: { current: "ss-investment-casting-pumps" },
-    description:
-      "Precision-engineered stainless steel investment casting pumps for corrosion-resistant performance.",
-    image: {} as Category["image"],
-    featured: true,
-    productCount: 1,
-  },
-  {
     _id: "cat-5",
     title: "Solar Pumps",
     slug: { current: "solar-pumps" },
