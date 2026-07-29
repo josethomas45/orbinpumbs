@@ -20,6 +20,8 @@ const categoryIcons: Record<string, string> = {
   "submersible-motors": "⚡",
   "domestic-series": "🏠",
   "sewage-waste-water-pumps": "♻️",
+  "wires-and-cables": "🔌",
+  "pipes": "📏",
   "cables": "🔌",
   "control-panels-starters": "🎛️",
   "fire-fighting-systems": "🔥",

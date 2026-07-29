@@ -42,7 +42,7 @@ export const fallbackCategories: Category[] = [
     slug: { current: "submersible-pumps" },
     description:
       "Turbo IE3 water-filled and oil-filled submersible pumps in V3, V4, V5, V6, V8, V9, and V10 configurations. Designed for deep well applications with maximum efficiency.",
-    image: {} as Category["image"],
+    image: "/images/categories/1.png" as any,
     featured: true,
     productCount: 3,
   },
@@ -52,7 +52,7 @@ export const fallbackCategories: Category[] = [
     slug: { current: "openwell-pumps" },
     description:
       "High-performance openwell submersible pumps designed for shallow water sources, sumps, tanks, and irrigation.",
-    image: {} as Category["image"],
+    image: "/images/categories/domestic-house.jpg" as any,
     featured: true,
     productCount: 2,
   },
@@ -62,7 +62,7 @@ export const fallbackCategories: Category[] = [
     slug: { current: "submersible-motors" },
     description:
       "Standard and stainless steel submersible motors engineered for reliability and long operational life.",
-    image: {} as Category["image"],
+    image: "/images/categories/8.png" as any,
     featured: true,
     productCount: 2,
   },
@@ -72,7 +72,7 @@ export const fallbackCategories: Category[] = [
     slug: { current: "solar-pumps" },
     description:
       "Complete solar pumping solutions with DC and AC controllers, suitable for agricultural and domestic use.",
-    image: {} as Category["image"],
+    image: "/images/categories/7.png" as any,
     featured: true,
     productCount: 2,
   },
@@ -82,9 +82,29 @@ export const fallbackCategories: Category[] = [
     slug: { current: "domestic-series" },
     description:
       "Booster pumps, multistage boosters, mini waste water pumps, and Lord series for residential water management.",
-    image: {} as Category["image"],
+    image: "/images/categories/6.png" as any,
     featured: true,
     productCount: 2,
+  },
+  {
+    _id: "cat-wires-cables",
+    title: "Wires and Cables",
+    slug: { current: "wires-and-cables" },
+    description:
+      "High-quality submersible wires and cables for safe and efficient underwater electrical connections.",
+    image: "/images/categories/wires-and-cables.jpg" as any,
+    featured: true,
+    productCount: 1,
+  },
+  {
+    _id: "cat-pipes",
+    title: "Pipes",
+    slug: { current: "pipes" },
+    description:
+      "Durable UPVC, CPVC, and casing pipes designed for robust and leak-proof water distribution systems.",
+    image: "/images/categories/pipes.png" as any,
+    featured: true,
+    productCount: 1,
   },
   {
     _id: "cat-7",
@@ -106,16 +126,7 @@ export const fallbackCategories: Category[] = [
     featured: false,
     productCount: 1,
   },
-  {
-    _id: "cat-9",
-    title: "Cables",
-    slug: { current: "cables" },
-    description:
-      "Submersible flat and round cables engineered for underwater pump connections.",
-    image: {} as Category["image"],
-    featured: false,
-    productCount: 1,
-  },
+
   {
     _id: "cat-10",
     title: "Control Panels & Starters",
@@ -458,6 +469,84 @@ export const fallbackProducts: Record<string, Product[]> = {
       series: "Standard",
       hpRange: "1 - 25",
       categorySlug: "submersible-motors",
+    },
+  ],
+  "wires-and-cables": [
+    {
+      _id: "prod-wc-1",
+      title: "SORBIN Submersible Flat Cables",
+      modelNumber: "SFC-3C",
+      slug: { current: "sorbin-flat-cables" },
+      shortDescription:
+        "High quality 3 core flat submersible cables for underwater pump electrical connections.",
+      features: [
+        "100% pure electrolytic copper",
+        "High insulation resistance",
+        "Excellent water resistance",
+        "Abrasion resistant outer sheath",
+        "Suitable for heavy duty applications",
+      ],
+      specifications: [
+        { model: "1.5 sq.mm", hp: "Up to 3", kw: "-", stages: "-", dischargeLpm: "-", headMeters: "-" },
+        { model: "2.5 sq.mm", hp: "Up to 5", kw: "-", stages: "-", dischargeLpm: "-", headMeters: "-" },
+        { model: "4.0 sq.mm", hp: "Up to 7.5", kw: "-", stages: "-", dischargeLpm: "-", headMeters: "-" },
+      ],
+      images: [],
+      series: "SORBIN",
+      hpRange: "-",
+      categorySlug: "wires-and-cables",
+    },
+  ],
+  "pipes": [
+    {
+      _id: "prod-pipes-1",
+      title: "ORBIN UPVC Column Pipes",
+      modelNumber: "OUP-V4",
+      slug: { current: "orbin-upvc-column-pipes" },
+      shortDescription:
+        "High strength UPVC column pipes for submersible pumps with leak-proof jointing.",
+      features: [
+        "High impact strength",
+        "Leak-proof specially designed threaded joints",
+        "Lightweight and easy to install",
+        "Corrosion and scale resistant",
+        "Long operational lifespan",
+      ],
+      specifications: [
+        { model: "1 inch", hp: "-", kw: "-", stages: "-", dischargeLpm: "-", headMeters: "-" },
+        { model: "1.25 inch", hp: "-", kw: "-", stages: "-", dischargeLpm: "-", headMeters: "-" },
+        { model: "1.5 inch", hp: "-", kw: "-", stages: "-", dischargeLpm: "-", headMeters: "-" },
+      ],
+      images: [],
+      series: "ORBIN",
+      hpRange: "-",
+      categorySlug: "pipes",
+    },
+  ],
+  "sewage-waste-water-pumps": [
+    {
+      _id: "prod-sww-1",
+      title: "ORBIN Sewage & Waste Water Pump",
+      modelNumber: "OSWP-1.0",
+      slug: { current: "orbin-sewage-pump" },
+      shortDescription:
+        "Heavy-duty submersible sewage pump with advanced cutter design for handling waste water and slurry.",
+      features: [
+        "Heavy duty cast iron construction",
+        "Built-in cutter for solid waste",
+        "Double mechanical seal",
+        "Thermal overload protector",
+        "Efficient handling of slurry and sludge",
+      ],
+      specifications: [
+        { model: "OSWP-1.0", hp: "1.0", kw: "0.75", stages: "1", dischargeLpm: "200", headMeters: "10" },
+        { model: "OSWP-1.5", hp: "1.5", kw: "1.1", stages: "1", dischargeLpm: "300", headMeters: "12" },
+        { model: "OSWP-2.0", hp: "2.0", kw: "1.5", stages: "1", dischargeLpm: "400", headMeters: "15" },
+      ],
+      images: [],
+      series: "ORBIN",
+      hpRange: "1 - 2",
+      categorySlug: "sewage-waste-water-pumps",
     },
   ],
 };

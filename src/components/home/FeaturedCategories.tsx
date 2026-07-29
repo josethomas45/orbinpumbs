@@ -27,6 +27,8 @@ const categoryIcons: Record<string, React.ElementType> = {
   "submersible-motors": Zap,
   "domestic-series": Home,
   "sewage-waste-water-pumps": Recycle,
+  "wires-and-cables": Cable,
+  "pipes": Wrench,
   "cables": Cable,
   "control-panels-starters": Cpu,
   "fire-fighting-systems": Flame,
@@ -78,7 +80,7 @@ export default function FeaturedCategories({ categories }: FeaturedCategoriesPro
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="flex flex-wrap justify-center gap-6 lg:gap-8">
           {categories.map((cat, i) => {
             const Icon = categoryIcons[cat.slug.current] || Package;
 
@@ -89,7 +91,7 @@ export default function FeaturedCategories({ categories }: FeaturedCategoriesPro
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05, duration: 0.5 }}
-                className="h-full"
+                className="h-full w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)]"
               >
                 <Link
                   href={`/products/${cat.slug.current}`}
@@ -98,7 +100,7 @@ export default function FeaturedCategories({ categories }: FeaturedCategoriesPro
                   {/* Premium Image Header */}
                   <div className="relative h-56 w-full bg-gray-100 overflow-hidden flex-shrink-0">
                     <Image
-                      src={cat.image?.asset?._ref || `/images/categories/${(i % 8) + 1}.png`}
+                      src={(typeof cat.image === 'string' ? cat.image : cat.image?.asset?._ref) || `/images/categories/${(i % 8) + 1}.png`}
                       alt={cat.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
