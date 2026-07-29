@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   getCategoryBySlug,
@@ -63,11 +64,15 @@ export default async function CategoryPage({ params }: Props) {
                   href={`/products/${slug}/${product.slug.current}`}
                   className="group bg-white rounded-2xl border border-orbin-gray-100 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-orbin-teal/5 hover:-translate-y-1 transition-all duration-300"
                 >
-                  {/* Image placeholder */}
-                  <div className="h-48 bg-gradient-to-br from-orbin-teal-50 to-orbin-gray-100 flex items-center justify-center">
-                    <div className="w-20 h-20 rounded-2xl bg-white/80 flex items-center justify-center shadow-sm">
-                      <Settings className="w-10 h-10 text-orbin-teal/40" />
-                    </div>
+                  {/* Product Image */}
+                  <div className="relative h-48 bg-gradient-to-br from-orbin-teal-50 to-orbin-gray-100 flex items-center justify-center overflow-hidden">
+                    <Image
+                      src={product.images?.[0]?.asset?._ref || `/images/products/${product.slug.current}.jpeg`}
+                      alt={product.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-contain p-4 group-hover:scale-110 transition-transform duration-500"
+                    />
                   </div>
 
                   <div className="p-5">

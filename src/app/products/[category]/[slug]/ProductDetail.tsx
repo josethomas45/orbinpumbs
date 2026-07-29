@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Product } from "@/types/sanity";
 import { SectionHeading } from "@/components/ui/shared";
@@ -40,11 +41,15 @@ export default function ProductDetail({
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-gradient-to-br from-orbin-teal-50 to-orbin-gray-100 rounded-2xl aspect-square flex items-center justify-center"
+              className="bg-gradient-to-br from-orbin-teal-50 to-orbin-gray-100 rounded-2xl aspect-square flex items-center justify-center overflow-hidden relative"
             >
-              <div className="w-40 h-40 rounded-3xl bg-white/80 flex items-center justify-center shadow-lg">
-                <Settings className="w-20 h-20 text-orbin-teal/30" />
-              </div>
+              <Image
+                src={product.images?.[0]?.asset?._ref || `/images/products/${product.slug.current}.jpeg`}
+                alt={product.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-contain p-8"
+              />
             </motion.div>
 
             {/* Details */}
